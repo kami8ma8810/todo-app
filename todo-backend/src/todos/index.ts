@@ -2,11 +2,6 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-// 以下はルートディレクトリに get メソッドでリクエストを送ると、Hello Hono! というテキストが return されているので、画面上に表示される
-// app.get('/', (c) => {
-//   return c.text('Hello Hono!')
-// })
-
 interface Todo {
   id: number
   title: string
@@ -19,10 +14,6 @@ let todos: Todo[] = [
   { id: 2, title: '朝食は必ずブロッコリーとヨーグルトをメニューに入れる', delete_flg: false },
   { id: 3, title: '2日に1回、歯のフロスをする', delete_flg: false },
 ]
-
-app.get("/", (c) => {
-  return c.text("Hello Hono!");
-})
 
 /**
  * Todo 一覧取得 API

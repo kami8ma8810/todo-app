@@ -31,6 +31,7 @@ const TodoForm = () => {
 
   const onSubmit = async (value: z.infer<typeof formSchema>) => {
     const { title } = value;
+    console.log('title:', title)  
     try {
       const response = await fetch("http://localhost:8787/api/todos", {
         method: "POST",
@@ -41,6 +42,7 @@ const TodoForm = () => {
         cache: "no-store",
         body: JSON.stringify({ title }),
       });
+      console.log('response:', response)
 
       if (!response.ok) {
         throw new Error("サーバーエラーが発生しました。");
